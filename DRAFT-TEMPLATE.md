@@ -44,3 +44,15 @@
 
 ## Author
 <!-- Your name/handle, so the accepted task credits you. -->
+
+## Pre-submission checklist (delete after checking)
+- [ ] Every fact in the expected answer has a numbered query in queries.sql
+- [ ] Every tool in the solution sketch exists in TOOL-SURFACES.md (exact names/params)
+- [ ] No fabricated tool outputs anywhere; no task.json/golden/verifier files included
+- [ ] Prompt names no tables, files, tools, or columns
+- [ ] No "as of <date>" anchor — or max(date) checked on every touched dataset
+- [ ] Each rubric: one fact, "the [variable] is [value]", no negatives, no and/or
+- [ ] Sets expressed as count + one membership rubric per member
+- [ ] Read prompt then rubrics: every rubric is answered by a direct answer to the prompt
+- [ ] Each designed wrong path breaks 3+ rubrics (note which, in comments)
+- [ ] 15-35 rubrics; solution sketch ~30+ calls; zip contains exactly DRAFT.md + queries.sql

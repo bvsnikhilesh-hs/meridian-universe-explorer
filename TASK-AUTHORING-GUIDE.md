@@ -80,6 +80,26 @@ that exist only through dangling references, and week-boundary date rules
    favored by per-item lookups (each mail body, each claim's approver) and
    rule-outs of look-alikes, not by data volume.
 
+**Four rules born from real failed submissions:**
+- **Only reference real tools.** Your solution-path sketch may only use tools
+  listed in TOOL-SURFACES.md, with their exact parameters. Never invent a tool,
+  a parameter, or a tool output — if you find yourself writing what a tool
+  "would" return, stop: prove it with SQL instead and leave execution to the
+  owner.
+- **Submit ONLY `DRAFT.md` + `queries.sql`.** Do not author task.json,
+  golden_plan.json, golden_trajectory.json, or verify_answer.py — those are
+  owner artifacts, generated against the real harness. Fabricated trajectory
+  files are the #1 cause of rejected drafts.
+- **No date anchors unless you've checked the horizon.** Before writing
+  "as of <date>" in a prompt, run `SELECT max(<date_col>)` on every dataset
+  your answer touches. If ANY relevant record is dated after your anchor, the
+  task has two defensible answers and will bounce. Default: no anchor.
+- **Every rubric must be elicited by your own prompt.** Read your prompt, then
+  each rubric, and ask: "would a complete, direct answer to this prompt state
+  this fact?" If the answer is no (the fact is merely *discoverable*), either
+  extend the prompt so it asks for it, or delete the rubric. Rubrics that
+  grade unasked-for facts fail every honest run.
+
 What you may NOT do: propose edits to existing data (if your idea needs new
 data, spec it in the draft and the owner will generate it); use benchmark
 words (trap, decoy, rubric, benchmark…) in any agent-visible text; build on
@@ -132,6 +152,6 @@ model fails at least 2 of 8 runs, and a careful agent can still pass.** Too
 easy comes back for a harder chain; impossible comes back for a fairness fix.
 Accepted tasks are credited to you.
 
-Read WORKED-EXAMPLE.md before your first draft. Then spend an hour in the
+Read WORKED-EXAMPLE.md and TOOL-SURFACES.md before your first draft. Then spend an hour in the
 explorer before writing a word — the best tasks are found in the data, not
 invented on top of it.
