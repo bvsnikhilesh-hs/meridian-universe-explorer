@@ -16,7 +16,7 @@ acceptance. You never run validation.
 
 **https://bvsnikhilesh-hs.github.io/meridian-universe-explorer/**
 
-Works in any browser, nothing to install. The sidebar lists all 31 tables with
+Works in any browser, nothing to install. The sidebar lists all 36 tables with
 row counts — click one to see its columns and load a preview query. Write any
 SQL (SQLite dialect); it runs locally in your tab. `Ctrl/Cmd+Enter` runs.
 
@@ -43,6 +43,8 @@ Three original domains plus newer verticals, all deliberately interlinked
 | expenses_2026 (82) | reimbursement claims | Ramp-style tool whose LIST view hides the approver — per-claim lookups required |
 | invoices_2025, refund_approvals, pto_2026, hr_offboarding, customer_contacts, region_migration | finance/HR/master-data verticals | file read |
 | mails (41) | company mailbox, 22 threads | Gmail-style tool: search returns summaries; bodies need per-message reads |
+| assets (101), asset_models, asset_locations | IT asset register — serial collisions, retired-yet-assigned, ghost location | assets tool ONLY |
+| calendars, calendar_events (62) | company calendar — double-booked room, organizer-on-PTO, stale references | calendar tool ONLY |
 | documents (9) | policies, memos, advisory notes — some deliberately stale or superseded | file read |
 | airtable_* (7 tables) | marketing-ops metrics base | Airtable-style tool ONLY (agents cannot read these as files) |
 | mongo_* (5 tables) | commerce store (transactions, shipments, reviews…) | MongoDB-style tool ONLY |

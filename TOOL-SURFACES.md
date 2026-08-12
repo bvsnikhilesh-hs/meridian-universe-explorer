@@ -62,6 +62,19 @@ If a capability isn't listed, the agent doesn't have it — design accordingly.
 - **get_file_info**(path*) — plus write/edit tools (writes only affect the agent's sandbox copy)
 - NOTE: long files are returned truncated (~8k chars per read); `head`/`tail` help
 
+## `assets` — IT asset inventory (Snipe-IT-style; its OWN dataset `asset_inventory.json`). Search covers tag/serial/model/notes — NOT assignees.
+- `list_assets(status, assigned_to, model, location, limit)` — List assets, optionally filtered. Filters (status, assigned_to, model, location) are ANDed. status is one of: deployed, loaner, in-repair, r
+- `get_asset(tag)` — Retrieve the full record of a specific asset by tag: tag, serial, model, status, assigned_to, location, checked_out, and notes (when present
+- `search_assets(query)` — Search assets. Query grammar: space-separated terms, all of which must match (AND), case-insensitively, against tag, serial, model NAME, and
+- `list_models()` — List the hardware model registry: id, name, category, and per-model asset count.
+- `list_locations()` — List the location REGISTRY: registered location names with per-location asset counts. Note: this is the registry as maintained, not a roll-u
+
+## `calendar` — Company calendar (Google-Calendar-style; its OWN dataset `calendar_2026.json`). Search covers title+location only; recurring series stored unexpanded.
+- `list_calendars()` — List all calendars: id, name, and per-calendar event count.
+- `list_events(calendarId, timeMin, timeMax, maxResults)` — List events on one calendar, optionally restricted to a time window. Window semantics follow the Google Calendar API: an event matches when 
+- `search_events(query, maxResults)` — Search events across ALL calendars. Query grammar: space-separated terms, all of which must match (AND), case-insensitively, against title +
+- `get_event(eventId)` — Retrieve the full record of a specific event by ID: id, calendarId, title, start, end, organizer, attendees, location, status, recurrence.
+
 ## Utility & decoy servers
 
 - **calculator**: calculate(expression*) — exact arithmetic
