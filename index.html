@@ -330,8 +330,8 @@ else if (typeof exports === 'object'){
     ["Analytics — MongoDB (tool-gated in tasks)", []],
   ];
   const all = db.exec("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")[0].values.map(r => r[0]);
-  GROUPS[3][1] = all.filter(t => t.startsWith("airtable_"));
-  GROUPS[4][1] = all.filter(t => t.startsWith("mongo_"));
+  GROUPS[4][1] = all.filter(t => t.startsWith("airtable_"));
+  GROUPS[5][1] = all.filter(t => t.startsWith("mongo_"));
   const counts = {}, columns = {};
   for (const t of all) {
     counts[t] = db.exec(`SELECT COUNT(*) FROM "${t}"`)[0].values[0][0];
